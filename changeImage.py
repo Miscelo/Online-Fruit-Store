@@ -9,3 +9,6 @@
 import os
 from PIL import Image
 
+user = os.getenv('USER')
+img_dir = '/home/{}/supplier-data/images/'.format(user)
+
