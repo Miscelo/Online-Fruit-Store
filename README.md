@@ -1,8 +1,8 @@
 # Online-Fruit-Store
 
-Automating Real-World Tasks
+Automating Real-World Tasks with Python
 
-Quicklab - coursera - Final Project
+Quicklab - Coursera - Final Project
 
 
 Okay, here's the scenario:
@@ -23,3 +23,5 @@ Since this process is key to your business's success, you need to make sure that
 Hopefully this summary has helped you start thinking about how you’ll approach this task.
  In case you’re feeling a little scared, don't worry, you can definitely do this!
   You have all the necessary tools, and the lab description will go into a lot more detail of what you need to do.
+
+
