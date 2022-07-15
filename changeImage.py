@@ -13,5 +13,20 @@ import os
 from PIL import Image
 
 user = os.getenv('USER')
-img_dir = '/home/{}/supplier-data/images/'.format(user)
+img_dir = '/home/{}/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/images/'.format(user)
+pictures = os.listdir(img_dir)
+
+for picture in pictures:
+    if 'tiff' in picture and not picture.startswith('.'):
+        img_without_extension = os.path.splitext(picture)[0]
+        img_jpg = img_dir + img_without_extension + ".jpg"
+        try:
+            with Image.open(img_dir + picture) as pic:
+                pic.convert('RGB').resize((600, 400)).save(img_jpg, 'JPEG')
+        except Exception:
+            print("Failed to convert image to jpg!")
+        finally:
+            print("Image converted to jpg with size 600x400 successfully!!!")
+
+
 
