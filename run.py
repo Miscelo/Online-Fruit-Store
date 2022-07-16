@@ -18,7 +18,7 @@ for file in files:
                 data = data.split("\n")
                 fruit = {"name": data[0], "weight": int(data[1].strip(" lbs")), "description": data[2],
                              "image_name": fruit_name + ".jpeg"}
-                response = requests.post(url, json=fruit_dic)
+                response = requests.post(url, json=fruit)
                 response.raise_for_status()
                 print(response.request.url)
                 print(response.status_code)
