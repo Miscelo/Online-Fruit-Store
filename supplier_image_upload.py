@@ -17,7 +17,20 @@
 import requests
 import os
 
-url = "http://localhost/upload/"
-
+external_ip = "localhost"
+url = "http://{}/upload/".format(external_ip)
 user = os.getenv('USER')
-print(user)
+img_dir = '/home/mic/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/images/'
+
+pictures = os.listdir(img_dir)
+for picture in pictures:
+    if picture.endswith('jpg'):
+        with open(img_dir + picture, 'rb') as img_binary:
+            r = requests.post(url, files={'file': img_binary})
+        if r.status_code == 200:
+            print("Picture \'{}\' uploaded to server {}.".format(picture, external_ip))
+        else:
+            print(r.content)
+            print("Image \'{}\' could not be uploaded to the server!".format(picture))
+
+
