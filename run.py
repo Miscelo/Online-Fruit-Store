@@ -10,7 +10,6 @@ files = os.listdir(txt_dir)
 
 fruit = {}
 for file in files:
-    fruit.clear()
     if file.endswith('txt'):
         try:
             with open(txt_dir + file, 'r') as content:
@@ -25,6 +24,10 @@ for file in files:
                 print(response.status_code)
         except FileNotFoundError as e:
             print(e)
+        except Exception:
+            print("Error to create dictionary nad send it to server!")
+        finally:
+            fruit.clear()
 
 
 
