@@ -26,7 +26,7 @@ def generate_email(sender, recipient, subject, body, attachment_path):
                 message.add_attachment(ap.read(), maintype=mime_type, subtype=mime_subtype,
                                        filename=attachment_filename)
         except Exception:
-            print("Failed to find atachment path")
+            print("Failed to find attachment path")
     return message
 
 
@@ -35,3 +35,5 @@ def send_email(message):
     mail_server = smtplib.SMTP('localhost')
     mail_server.send_message(message)
     mail_server.quit()
+
+#Config mail server
