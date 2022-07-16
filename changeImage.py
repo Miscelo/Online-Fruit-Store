@@ -4,7 +4,7 @@ import os
 from PIL import Image
 
 user = os.getenv('USER')
-img_dir = '/home/{}/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/images/'.format(user)
+img_dir = '/home/{}/supplier-data/images/'.format(user)
 pictures = os.listdir(img_dir)
 
 for picture in pictures:
