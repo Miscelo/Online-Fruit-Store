@@ -5,7 +5,7 @@ import requests
 
 user = os.getenv('USER')
 url = 'http://localhost/fruits/'
-txt_dir = "/home/{}/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/descriptions/".format(user)
+txt_dir = "/home/{}/supplier-data/descriptions/".format(user)
 files = os.listdir(txt_dir)
 
 fruit = {}
