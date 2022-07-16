@@ -3,18 +3,18 @@
 import requests
 import os
 
-external_ip = "localhost"
-url = "http://{}/upload/".format(external_ip)
+domainname = "localhost"
+url = "http://{}/upload/".format(domainname)
 user = os.getenv('USER')
 img_dir = '/home/{}/supplier-data/images/'.format(user)
 
 pictures = os.listdir(img_dir)
 for picture in pictures:
-    if picture.endswith('jpg'):
+    if picture.endswith('jpeg'):
         with open(img_dir + picture, 'rb') as img_binary:
             r = requests.post(url, files={'file': img_binary})
         if r.status_code == 200:
-            print("Picture \'{}\' uploaded to server {}.".format(picture, external_ip))
+            print("Picture \'{}\' uploaded to server {}.".format(picture, domainname))
         else:
             print(r.content)
             print("Image \'{}\' could not be uploaded to the server!".format(picture))
