@@ -10,7 +10,7 @@ pictures = os.listdir(img_dir)
 for picture in pictures:
     if 'tiff' in picture and not picture.startswith('.'):
         img_without_extension = os.path.splitext(picture)[0]
-        img_jpg = img_dir + img_without_extension + ".jpg"
+        img_jpg = img_dir + img_without_extension + ".jpeg"
         try:
             with Image.open(img_dir + picture) as pic:
                 pic.convert('RGB').resize((600, 400)).save(img_jpg, 'JPEG')
