@@ -1,3 +1,33 @@
+#!/usr/bin/env python3
+
+import os
+import requests
+
+user = os.getenv('USER')
+url = 'http://localhost/fruits/'
+txt_dir = "/home/{}/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/descriptions/".format(user)
+files = os.listdir(txt_dir)
+
+fruit = {}
+for file in files:
+    fruit.clear()
+    if file.endswith('txt'):
+        try:
+            with open(txt_dir + file, 'r') as content:
+                fruit_name = os.path.splitext(file)[0]
+                data = content.read()
+                data = data.split("\n")
+                fruit_dic = {"name": data[0], "weight": int(data[1].strip(" lbs")), "description": data[2],
+                             "image_name": fruit_name + ".jpeg"}
+                response = requests.post(url, json=fruit_dic)
+                response.raise_for_status()
+                print(response.request.url)
+                print(response.status_code)
+        except FileNotFoundError as e:
+            print(e)
+
+
+
 # Uploading the descriptions
 #
 # The Django server was already set up inn the linux virtual machine to show the fruit catalog for your company.
@@ -27,20 +57,3 @@
 # kidney inflammation. Watermelon also contains substances that can lower blood pressure.", "image_name": "010.jpeg"}
 # Iterate over all the fruits and use post method from Python requests library
 # to upload all the data to the URL http://[linux-instance-external-IP]/fruits
-
-#!/usr/bin/env python3
-
-import os
-import requests
-
-
-def catalog_data(url, description_dir):
-    print(url)
-    print(description_directory)
-    return 0
-
-if __name__ == '__main__':
-    url = 'http://localhost/fruits/'
-    user = os.getenv('USER')
-    description_directory = '/home/{}/supplier-data/descriptions/'.format(user)
-    catalog_data(url, description_directory)
