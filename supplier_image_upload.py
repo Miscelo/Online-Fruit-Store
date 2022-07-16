@@ -20,7 +20,7 @@ import os
 external_ip = "localhost"
 url = "http://{}/upload/".format(external_ip)
 user = os.getenv('USER')
-img_dir = '/home/mic/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/images/'
+img_dir = '/home/{}/pro/python/pycharmDebian/FinalProject/Online-Fruit-Store/supplier-data/images/'.format(user)
 
 pictures = os.listdir(img_dir)
 for picture in pictures:
