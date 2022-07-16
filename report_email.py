@@ -41,7 +41,6 @@ if __name__ == "__main__":
 
 
 # send Email with attached pdf
-
 # Once the PDF is generated, you need to send the email using the
 #         emails.generate_email() and emails.send_email()    methods from emails.py- file.
 
